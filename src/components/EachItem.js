@@ -16,16 +16,38 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
     <div className="item-card">
       {!isEditing ? (
         <>
-          <input
-            type="checkbox"
-            checked={item.checked}
-            onChange={() => onCheck(item.id)}
-          />
-          <div className="item-content">
-            <h3 className={item.checked ? 'item-title checked' : 'item-title'}>{item.title}</h3>
-            <p className={item.checked ? 'item-description checked' : 'item-description'}>{item.description}</p>
-            {item.subChore && <p className="sub-chore">Sub-Chore: {item.subChore}</p>}
+          <div className="checkboxes">
+            <input
+              type="checkbox"
+              checked={item.checked}
+              onChange={() => onCheck(item.id)}
+            />
+            <h3 className={item.checked ? 'item-title checked' : 'item-title'}>
+              {item.title}
+            </h3>
           </div>
+          <div className="checkboxes">
+            <input
+              type="checkbox"
+              checked={item.checked}
+              onChange={() => onCheck(item.id)}
+            />
+            <p className={item.checked ? 'item-description checked' : 'item-description'}>
+              {item.description}
+            </p>
+          </div>
+          {item.subChore && (
+            <div className="checkboxes">
+              <input
+                type="checkbox"
+                checked={item.checked}
+                onChange={() => onCheck(item.id)}
+              />
+              <p className={item.checked ? 'item-subchore checked' : 'item-subchore'}>
+                Sub-Chore: {item.subChore}
+              </p>
+            </div>
+          )}
           <button className="edit-button" onClick={() => setIsEditing(true)}><FiEdit /></button>
           <button className="delete-button" onClick={() => onDelete(item.id)}>
             <RiDeleteBin2Line />
