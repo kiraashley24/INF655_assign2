@@ -6,6 +6,9 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(item.title);
   const [editedDescription, setEditedDescription] = useState(item.description);
+  const [titleChecked, setTitleChecked] = useState(item.titleChecked || false);
+  const [descriptionChecked, setDescriptionChecked] = useState(item.descriptionChecked || false);
+  const [subChoreChecked, setSubChoreChecked] = useState(item.subChoreChecked || false);
 
   const handleSave = () => {
     onEdit(item.id, editedTitle, editedDescription);
@@ -19,20 +22,20 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
           <div className="checkboxes">
             <input
               type="checkbox"
-              checked={item.checked}
-              onChange={() => onCheck(item.id)}
+              checked={titleChecked}
+              onChange={() => setTitleChecked(!titleChecked)}
             />
-            <h3 className={item.checked ? 'item-title checked' : 'item-title'}>
+            <h3 className={titleChecked ? 'item-title checked' : 'item-title'}>
               {item.title}
             </h3>
           </div>
           <div className="checkboxes">
             <input
               type="checkbox"
-              checked={item.checked}
-              onChange={() => onCheck(item.id)}
+              checked={descriptionChecked}
+              onChange={() => setDescriptionChecked(!descriptionChecked)}
             />
-            <p className={item.checked ? 'item-description checked' : 'item-description'}>
+            <p className={descriptionChecked ? 'item-description checked' : 'item-description'}>
               {item.description}
             </p>
           </div>
@@ -40,10 +43,10 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
             <div className="checkboxes">
               <input
                 type="checkbox"
-                checked={item.checked}
-                onChange={() => onCheck(item.id)}
+                checked={subChoreChecked}
+                onChange={() => setSubChoreChecked(!subChoreChecked)}
               />
-              <p className={item.checked ? 'item-subchore checked' : 'item-subchore'}>
+              <p className={subChoreChecked ? 'item-subchore checked' : 'item-subchore'}>
                 Sub-Chore: {item.subChore}
               </p>
             </div>
