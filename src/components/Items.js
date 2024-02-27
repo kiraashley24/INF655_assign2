@@ -10,7 +10,7 @@ const Items = ({ items, onCheck, onDelete, onEdit }) => {
           item={item}
           onCheck={onCheck}
           onDelete={onDelete}
-          onEdit={onEdit}
+          onEdit={onEdit} // Make sure onEdit is passed here
         />
       ))}
     </div>

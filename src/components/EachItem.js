@@ -6,13 +6,19 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(item.title);
   const [editedDescription, setEditedDescription] = useState(item.description);
-  const [titleChecked, setTitleChecked] = useState(item.titleChecked || false);
-  const [descriptionChecked, setDescriptionChecked] = useState(item.descriptionChecked || false);
+  const [editedSubChore, setEditedSubChore] = useState(item.subChore);
+  const [titleChecked, setTitleChecked] = useState(item.checked || false); // Using item.checked
+  const [descriptionChecked, setDescriptionChecked] = useState(item.checked || false); // Using item.checked
   const [subChoreChecked, setSubChoreChecked] = useState(item.subChoreChecked || false);
 
   const handleSave = () => {
-    onEdit(item.id, editedTitle, editedDescription);
+    onEdit(item.id, editedTitle, editedDescription, editedSubChore);
     setIsEditing(false);
+  };
+
+  const handleCheckTitle = () => {
+    setTitleChecked(!titleChecked);
+    setDescriptionChecked(!descriptionChecked); // Toggle descriptionChecked along with titleChecked
   };
 
   return (
@@ -23,18 +29,13 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
             <input
               type="checkbox"
               checked={titleChecked}
-              onChange={() => setTitleChecked(!titleChecked)}
+              onChange={handleCheckTitle}
             />
             <h3 className={titleChecked ? 'item-title checked' : 'item-title'}>
               {item.title}
             </h3>
           </div>
           <div className="checkboxes">
-            <input
-              type="checkbox"
-              checked={descriptionChecked}
-              onChange={() => setDescriptionChecked(!descriptionChecked)}
-            />
             <p className={descriptionChecked ? 'item-description checked' : 'item-description'}>
               {item.description}
             </p>
@@ -67,6 +68,11 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
             type="text"
             value={editedDescription}
             onChange={(e) => setEditedDescription(e.target.value)}
+          />
+          <input
+            type="text"
+            value={editedSubChore}
+            onChange={(e) => setEditedSubChore(e.target.value)}
           />
           <button onClick={handleSave}>Save</button>
           <button onClick={() => setIsEditing(false)}>Cancel</button>
