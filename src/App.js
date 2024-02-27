@@ -36,40 +36,40 @@ const App = () => {
       title,
       description,
       checked: false,
-      subTasks: [],
+      subChores: [], // Changed from subTasks to subChores
     };
     setItems([...items, newItem]);
   };
 
-  const handleAddSubTask = (parentId, { title }) => {
+  const handleAddSubChore = (parentId, { title }) => {
     const updatedItems = items.map((item) => {
       if (item.id === parentId) {
-        const newSubTask = { id: uuidv4(), title, completed: false };
-        return { ...item, subTasks: [...item.subTasks, newSubTask] };
+        const newSubChore = { id: uuidv4(), title, completed: false };
+        return { ...item, subChores: [...item.subChores, newSubChore] };
       }
       return item;
     });
     setItems(updatedItems);
   };
 
-  const handleCheckSubTask = (parentId, subTaskId) => {
+  const handleCheckSubChore = (parentId, subChoreId) => {
     const updatedItems = items.map((item) => {
       if (item.id === parentId) {
-        const updatedSubTasks = item.subTasks.map((subTask) =>
-          subTask.id === subTaskId ? { ...subTask, completed: !subTask.completed } : subTask
+        const updatedSubChores = item.subChores.map((subChore) =>
+          subChore.id === subChoreId ? { ...subChore, completed: !subChore.completed } : subChore
         );
-        return { ...item, subTasks: updatedSubTasks };
+        return { ...item, subChores: updatedSubChores };
       }
       return item;
     });
     setItems(updatedItems);
   };
 
-  const handleDeleteSubTask = (parentId, subTaskId) => {
+  const handleDeleteSubChore = (parentId, subChoreId) => {
     const updatedItems = items.map((item) => {
       if (item.id === parentId) {
-        const updatedSubTasks = item.subTasks.filter((subTask) => subTask.id !== subTaskId);
-        return { ...item, subTasks: updatedSubTasks };
+        const updatedSubChores = item.subChores.filter((subChore) => subChore.id !== subChoreId);
+        return { ...item, subChores: updatedSubChores };
       }
       return item;
     });
@@ -109,9 +109,9 @@ const App = () => {
         items={filteredItems}
         onCheck={handleCheck}
         onDelete={handleDelete}
-        onAddSubTask={handleAddSubTask}
-        onCheckSubTask={handleCheckSubTask}
-        onDeleteSubTask={handleDeleteSubTask}
+        onAddSubChore={handleAddSubChore}
+        onCheckSubChore={handleCheckSubChore}
+        onDeleteSubChore={handleDeleteSubChore}
       />
     </div>
   );
