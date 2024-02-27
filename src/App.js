@@ -36,9 +36,18 @@ const App = () => {
       title,
       description,
       checked: false,
-      subChores: [], // Changed from subTasks to subChores
+      subChores: [], 
     };
     setItems([...items, newItem]);
+  };
+
+  const handleEdit = (id, editedTitle, editedDescription, editedSubChore) => {
+    const updatedItems = items.map((item) =>
+      item.id === id
+        ? { ...item, title: editedTitle, description: editedDescription, subChore: editedSubChore }
+        : item
+    );
+    setItems(updatedItems);
   };
 
   const handleAddSubChore = (parentId, { title }) => {
@@ -109,6 +118,7 @@ const App = () => {
         items={filteredItems}
         onCheck={handleCheck}
         onDelete={handleDelete}
+        onEdit={handleEdit}
         onAddSubChore={handleAddSubChore}
         onCheckSubChore={handleCheckSubChore}
         onDeleteSubChore={handleDeleteSubChore}
