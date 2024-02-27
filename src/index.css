@@ -11,3 +11,135 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body {
+  background-color: rgb(125, 171, 228);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: xx-large;
+  text-align: center;
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: x-large;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.todo-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.item-card {
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.item-content {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.item-title {
+  font-size: 24px;
+}
+
+.item-description {
+  font-size: 18px;
+}
+
+.delete-button {
+  background-color: white;
+  color: #f44336;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-size: 24px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.edit-button {
+  background-color: white;
+  color: rgb(3, 80, 43);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-size: 24px;
+}
+
+.edit-button:hover {
+  background-color: rgb(3, 80, 43);
+  color: white;
+}
+
+.item-title.checked {
+  text-decoration: line-through;
+  color: rgb(57, 219, 57);
+}
+
+
+.item-description.checked {
+  text-decoration: line-through;
+  color: rgb(57, 219, 57);
+}
+
+.card {
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  font-weight: bold;
+}
+
+.task-form input {
+  margin: 10px;
+  width: 100%; 
+  max-width: 300px; 
+  padding: 8px; 
+  box-sizing: border-box; 
+  font-style: italic;
+}
+
+.task-form button {
+  margin: 5px;
+  padding: 8px;
+  
+}
+
+label {
+  margin: 20px;
+  font-weight: bold;
+}
