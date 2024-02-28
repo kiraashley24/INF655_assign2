@@ -30,13 +30,13 @@ const App = () => {
     setItems(updatedItems);
   };
 
-  const handleAddItem = ({ title, description }) => {
+  const handleAddItem = ({ title, description, subChores }) => {
     const newItem = {
       id: items.length + 1,
       title,
       description,
       checked: false,
-      subChores: [], 
+      subChores: subChores
     };
     setItems([...items, newItem]);
   };
@@ -54,7 +54,7 @@ const App = () => {
     const updatedItems = items.map((item) => {
       if (item.id === parentId) {
         const newSubChore = { id: uuidv4(), title, completed: false };
-        return { ...item, subChores: [...item.subChores, newSubChore] };
+        return { ...item, subChores: item.subChores ? item.subChores + ', ' + title : title };
       }
       return item;
     });
@@ -101,7 +101,7 @@ const App = () => {
       <div className="card">
         <div className="card-body">
           <h2>Add New Chore</h2>
-          <AddItem onAddItem={handleAddItem} />
+          <AddItem onAddItem={handleAddItem} onAddSubChore={handleAddSubChore} />
         </div>
       </div>
       <div>

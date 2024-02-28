@@ -1,30 +1,19 @@
 import React, { useState } from 'react';
-import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircle } from 'react-icons/io';
 
 const AddItem = ({ onAddItem }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [subChores, setSubChores] = useState([]);
-  const [subChoreInput, setSubChoreInput] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title.trim() || subChores.length === 0 || subChores.some(sub => !sub.trim())) {
-      alert('Please enter a title for the chore and sub-chores');
+    if (!title.trim() || !description.trim()) {
+      alert('Please enter a title and description for the chore');
       return;
     }
-    onAddItem({ title, description, subChores });
+    onAddItem({ title, description });
     setTitle('');
     setDescription('');
-    setSubChores([]);
-    setSubChoreInput('');
-  };
-
-  const handleAddSubChore = () => {
-    if (subChoreInput.trim()) {
-      setSubChores([...subChores, subChoreInput]);
-      setSubChoreInput('');
-    }
   };
 
   return (
@@ -48,24 +37,6 @@ const AddItem = ({ onAddItem }) => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-      </div>
-      <div>
-        <label htmlFor="subChore">Sub-Chores:</label>
-        <div>
-          {subChores.map((subChore, index) => (
-            <div key={index}>
-              <span>{subChore}</span>
-            </div>
-          ))}
-        </div>
-        <input
-          id="subChore"
-          type="text"
-          placeholder="Enter sub-chore"
-          value={subChoreInput}
-          onChange={(e) => setSubChoreInput(e.target.value)}
-        />
-        <button type="button" onClick={handleAddSubChore}>Add Sub-Chore</button>
       </div>
       <button type="submit">Add Chore <IoIosAddCircle /></button>
     </form>

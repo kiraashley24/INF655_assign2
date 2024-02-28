@@ -7,8 +7,8 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
   const [editedTitle, setEditedTitle] = useState(item.title);
   const [editedDescription, setEditedDescription] = useState(item.description);
   const [editedSubChore, setEditedSubChore] = useState(item.subChore);
-  const [titleChecked, setTitleChecked] = useState(item.checked || false); // Using item.checked
-  const [descriptionChecked, setDescriptionChecked] = useState(item.checked || false); // Using item.checked
+  const [titleChecked, setTitleChecked] = useState(item.checked || false);
+  const [descriptionChecked, setDescriptionChecked] = useState(item.checked || false);
   const [subChoreChecked, setSubChoreChecked] = useState(item.subChoreChecked || false);
 
   const handleSave = () => {
@@ -18,7 +18,7 @@ const EachItem = ({ item, onCheck, onDelete, onEdit }) => {
 
   const handleCheckTitle = () => {
     setTitleChecked(!titleChecked);
-    setDescriptionChecked(!descriptionChecked); // Toggle descriptionChecked along with titleChecked
+    setDescriptionChecked(!descriptionChecked);
   };
 
   return (

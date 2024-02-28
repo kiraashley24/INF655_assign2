@@ -1,19 +1,6 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-body {
-  background-color: rgb(125, 171, 228);
   font-family: Arial, sans-serif;
+  background-color: rgb(125, 171, 228);
 }
 
 h1 {
@@ -27,43 +14,26 @@ h2 {
   text-align: center;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.todo-list {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
 .item-card {
   padding: 10px;
   margin: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: white;
 }
 
 .item-content {
   text-align: center;
-  flex-grow: 1;
 }
 
 .item-title {
   font-size: 24px;
+  margin-bottom: 10px; 
 }
 
 .item-description {
   font-size: 18px;
+  margin-bottom: 10px; 
 }
 
 .delete-button {
@@ -83,6 +53,20 @@ h2 {
   color: white;
 }
 
+.item-subchore {
+  font-size: 16px;
+  margin-bottom: 5px; 
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: rgb(57, 219, 57);
+}
+
 .edit-button {
   background-color: white;
   color: rgb(3, 80, 43);
@@ -92,7 +76,7 @@ h2 {
   cursor: pointer;
   height: 50px;
   width: 50px;
-  font-size: 24px;
+  font-size: 24px
 }
 
 .edit-button:hover {
@@ -100,20 +84,19 @@ h2 {
   color: white;
 }
 
-.item-title.checked {
-  text-decoration: line-through;
-  color: rgb(57, 219, 57);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-
-.item-description.checked {
-  text-decoration: line-through;
-  color: rgb(57, 219, 57);
-}
-
-.item-subchore.checked {
-  text-decoration: line-through;
-  color: rgb(57, 219, 57);
+.todo-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .card {
@@ -131,17 +114,16 @@ h2 {
 
 .task-form input {
   margin: 10px;
-  width: 100%; 
-  max-width: 300px; 
-  padding: 8px; 
-  box-sizing: border-box; 
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  box-sizing: border-box;
   font-style: italic;
 }
 
 .task-form button {
   margin: 5px;
   padding: 8px;
-  
 }
 
 label {
